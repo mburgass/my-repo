@@ -51,3 +51,24 @@ s2
 
 s3= s2 + aes(color = continent)
 s3
+````
+#Piped together
+````{r}
+s<- ggplot(g, aes(x = gdpPercap, y = lifeExp)) + geom_point() +
+aes(size = pop_m) +
+aes(color = continent) +
+  ggtitle('Health and Wealth of Nations for 2007') + xlab('GDP per capita (USD/year)')+
+  ylab('Life expectency (years)')+
+  scale_colour_discrete('Continent')+
+  scale_size_continuous('Population (M)')
+s
+````
+##Make a boxplot
+This is my boxplot of continent and life expectency.
+Using 'g', which is a subset of 2007. 
+````{r}
+t<- ggplot(g, aes(x = continent, y = lifeExp)) + geom_boxplot() +
+aes(fill= continent) +
+  theme(legend.position = 'none')
+t
+````

@@ -1,0 +1,53 @@
+---
+title: "ggplot_intro.r"
+author: "Mike"
+date: "13 July 2016"
+output: html_document
+---
+
+## Plan
+
+We'll load libraries and learn ggplot2.
+
+Here we write in Markdown.
+
+# hashtags mean headers
+
+```{r name your rchunks}
+# here we write in R.
+
+# hashtags mean comment
+
+```
+
+## Load Libraries
+```{r}
+#loading my libraries
+library(dplyr)
+library(gapminder)
+library(ggplot2) #install.packages('ggplot2')
+## subset our data
+g<- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(pop_m= pop/1e6)
+````
+#My first plot
+
+```{r}
+##ggplot(data, aes(what's x, what's y)) + what_kind_of_plot()
+
+s<- ggplot(g, aes(x = gdpPercap, y= lifeExp)) + 
+  geom_point()
+
+s
+````
+#My second plot
+
+```{r}
+##a simple geom_point with aes()
+
+s2 = s + aes(size = pop_m)
+s2
+
+s3= s2 + aes(color = continent)
+s3

@@ -64,7 +64,7 @@ aes(color = continent) +
 s
 ````
 ##Make a boxplot
-This is my boxplot of continent and life expectency.
+This is my boxplot of continent and life expectancy.
 Using 'g', which is a subset of 2007. 
 ````{r}
 t<- ggplot(g, aes(x = continent, y = lifeExp)) + geom_boxplot() +
